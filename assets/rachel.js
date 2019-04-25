@@ -1,3 +1,3 @@
-dictionarySearch = function(term) {
+other = function(term) {
     console.log("dictionarysearch worked!");
 }
