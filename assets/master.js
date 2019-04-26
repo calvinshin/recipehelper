@@ -17,7 +17,7 @@ var app = {
             console.log(technique);
             // Insert the function here:
             dictionarySearch(technique);
-            ytSearch(technique);
+            // ytSearch(technique);
 
         })
     }
