@@ -1,4 +1,3 @@
-=======
 recipeSearch = function(term) {
   console.log("recipesearch worked!");
 };
@@ -13,7 +12,7 @@ recipeSearch = function(term) {
 // need to assign a class, attributes, text to it, append. 
 
 // assigning a random value to variable for testing purposes
-var searchTerm = broccoli;
+var searchTerm = "broccoli";
 
 // start off the jQuery
 $(document).on("click", "#container", function() {
@@ -29,7 +28,7 @@ var queryURL = "http://" + searchTerm + ""; //insert the API key here
 $.ajax({
   url: queryURL,
   method: "GET"
-});
+})
 
 // generating the response 
 .then(function(response) {
