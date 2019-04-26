@@ -1,3 +1,3 @@
-recipeSearch = function(term) {
-    console.log("recipesearch worked!");
-}
+testSearch = function(term) {
+  console.log("recipesearch worked!");
+};
