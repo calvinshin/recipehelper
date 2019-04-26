@@ -2,11 +2,7 @@ dictionarySearch = function(term) {
   console.log("dictionarysearch worked!");
   var MirrWebKEY = config.MirrWebKEY;
   var dictionarySearchTerm = "reciprocate";
-  var queryURL =
-    "https://www.dictionaryapi.com/api/v3/references/collegiate/json/" +
-    dictionarySearchTerm +
-    "?key=" +
-    MirrWebKEY;
+  var queryURL = "https://www.dictionaryapi.com/api/v3/references/collegiate/json/" + dictionarySearchTerm + "?key=" + MirrWebKEY;
   console.log(dictionarySearchTerm);
 
     $.ajax({
@@ -61,7 +57,6 @@ dictionarySearch = function(term) {
         popUpdiv.append(termP, speechP, defP);
         //for testing purposes
         $(".technique").append(popUpdiv);
-    });
 
     //dynamically create a div within <div class="technique"> that provides a pop-up window
     var popUpdiv = $("<div>");
@@ -85,7 +80,8 @@ dictionarySearch = function(term) {
     console.log(popUpdiv);
     //for testing purposes
     $(".technique").append(popUpdiv);
-  });
+    });
+
 };
 
 ytSearch = function(video) {
