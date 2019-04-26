@@ -16,7 +16,8 @@ var app = {
             var technique = this.innerText;
             console.log(technique);
             // Insert the function here:
-            dictionarySearch(technique);;
+            dictionarySearch(technique);
+            ytSearch(technique);
 
         })
     }
