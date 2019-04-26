@@ -1,5 +1,13 @@
-recipeSearch = function(term) {
-  console.log("recipesearch worked!");
+var term;
+
+$(document).on("click", "#search", function() {
+  term = $("#searchterm")
+    .val()
+    .trim();
+  console.log(term);
+
+  //   recipeSearch = function(term) {
+  //     console.log(term);
 
   // var appId = config.APP_ID;
   // var appKey = config.APP_KEY;
@@ -7,35 +15,40 @@ recipeSearch = function(term) {
   // Do I need this?
   // "Content-Type: application/json"
 
-  var searchTerm = "broccoli";
-  console.log("broccoli");
+  //   var searchTerm = "broccoli";
+  //   console.log("broccoli");
   var queryURL =
-    "https://api.edamam.com/search?q=chicken&app_id=a79ef939&app_key=f4c70c373b3b4086dbca855aba56f666";
+    "https://api.edamam.com/search?q=" +
+    term +
+    "&app_id=a79ef939&app_key=f4c70c373b3b4086dbca855aba56f666";
 
   // make the AJAX call
   $.ajax({
     url: queryURL,
     method: "GET"
   }).then(function(response) {
-    console.log(response);
+    console.log(response.hits);
 
     // set the 10 responses back as an array
-    var results = [];
+    var results = response.hits;
 
     // there are 10 responses, so we need to do some sort of loop;
     for (var i = 0; i < results.length; i++) {
       // inside the loop, we should be creating a containerdiv
+      console.log(results[1].recipe.label);
       containerDiv = $("<div>");
 
       // we add three elements based on the response[i] (image, name, preview of recipe instructions)
-      title = $("<h1>").text(response.title); // "title, img, ingr" all taken from example in Edamam documentation
-      img = $("<img>").attr("src", response.thumb_url); //borrowed from class example
-      ingr = $("<h4>").text(response.ingr);
+      title = $("<h1>").text(results[1].recipe.label); // "title, img, ingr" all taken from example in Edamam documentation
+
+      $("#bodydiv").append(title);
+      img = $("<img>").attr("src", response.recipe.image); // found this looking in the console.. might not be right
+      ingr = $("<h4>").text(response.recipe.ingredients);
 
       // add classes to each element and the containerdiv
-      title.addClass("#title");
-      img.addClass("#image");
-      ingr.addClass("#ingredients");
+      title.addClass("title");
+      img.addClass("image");
+      ingr.addClass("ingredients");
 
       // add attributes to the containerdiv that has the name of the recipe
       title.attr("src");
@@ -43,12 +56,13 @@ recipeSearch = function(term) {
       ingr.attr("src");
 
       // append the elements into the containerdiv
-      $("#title").append(containerDiv);
-      $("#image").append(containerDiv);
-      $("#ingredients").append(containerDiv);
+      $(containerDiv).append("#title");
+      $(containerDiv).append("#image");
+      $(containerDiv).append("#ingredients");
 
       // append the containerdiv to #bodydiv
       $(containerDiv).append("#bodydiv");
     }
   });
-};
+  //   };
+});
