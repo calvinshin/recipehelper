@@ -75,7 +75,7 @@ $(document).on("click", "#search", function() {
       // append the containerdiv to #bodydiv
       // CS: Close! Check this out https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_html_append_ref
       // You're actually doing something similar to this on line 49 (and that one is actually correct)
-      $("#bodydiv").append(containerDiv);
+      $("#bodydiv").append($containerDiv);
     }
   });
   //   };
