@@ -36,7 +36,7 @@ $(document).on("click", "#search", function() {
     for (var i = 0; i < results.length; i++) {
       // inside the loop, we should be creating a containerdiv
       console.log(results[1].recipe.label);
-      containerDiv = $("<div>");
+      $containerDiv = $("<div>");
 
       // we add three elements based on the response[i] (image, name, preview of recipe instructions)
       // CS: note here that results[1] is fixed! If you're inside a for loop, you'll want to go through each value in the results array
@@ -45,7 +45,7 @@ $(document).on("click", "#search", function() {
       // What should [1] be changed to?
       title = $("<h1>").text(results[i].recipe.label); // "title, img, ingr" all taken from example in Edamam documentation
 
-      $("#bodydiv").append(title);
+      // $("#bodydiv").append(title);
 
       // on line 44 (for title), you use results[1].recipe.label
       // but for img and ingr, you're using response.recipe.image.
@@ -67,10 +67,10 @@ $(document).on("click", "#search", function() {
       // append the elements into the containerdiv
       // CS: Really close with this!
       // This should actually be
-      // containerDiv.append(title)
-      $(containerDiv).append(title);
-      $(containerDiv).append(image);
-      $(containerDiv).append(ingredients);
+      // $containerDiv.append(title)
+      $containerDiv.append(title);
+      $containerDiv.append(img);
+      $containerDiv.append(ingr);
 
       // append the containerdiv to #bodydiv
       // CS: Close! Check this out https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_html_append_ref
