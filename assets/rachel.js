@@ -1,41 +1,107 @@
-recipeSearch = function(term) {
-  console.log("recipesearch worked!");
-};
+var term;
 
-// INPUT --> AJAX
-// VARIABLE OUTPUT STORED
-// DYNAMICALLY CREATED VARIABLE 
+$(document).on("click", "#search", function() {
+  term = $("#searchterm")
+    .val()
+    .trim();
+  console.log(term);
 
-// what should be empty when you're first starting off? 
-// what should your button be called? 
-// create a function to loop through the area
-// need to assign a class, attributes, text to it, append. 
+  //   recipeSearch = function(term) {
+  //     console.log(term);
 
-// assigning a random value to variable for testing purposes
-var searchTerm = "broccoli";
+  // var appId = config.APP_ID;
+  // var appKey = config.APP_KEY;
 
-// start off the jQuery
-$(document).on("click", "#container", function() {
-  // insert content here
-});
+  // Do I need this?
+  // "Content-Type: application/json"
 
-// Edamam application ID: a79ef939
-// Edamam application key to authenticate requests: f4c70c373b3b4086dbca855aba56f666
+  //   var searchTerm = "broccoli";
+  //   console.log("broccoli");
+  var queryURL =
+    "https://api.edamam.com/search?q=" +
+    term +
+    "&app_id=a79ef939&app_key=f4c70c373b3b4086dbca855aba56f666";
 
+  // make the AJAX call
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function(response) {
+    console.log(response.hits);
 
-var queryURL = "http://" + searchTerm + ""; //insert the API key here
+    // set the 10 responses back as an array
+    var results = response.hits;
+    var newarray = [];
 
-$.ajax({
-  url: queryURL,
-  method: "GET"
-})
+    for(var p = 0; p < results.length; p++) {
+      var recipe = results[p].recipe;
+      var newItem = {};
+      // add title as attribute
+      newItem.title = recipe.label
+      // add image as attribute
+      newItem.img = recipe.image
+      // add ingredients as attribute
+      newItem.text = recipe.ingredientLines
 
-// generating the response 
-.then(function(response) {
-    var results = response.data;
+      // CS add html link as an attribute ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    // create a for loop 
-    for (var i = 0; i < results.length; i++) {
-        // what do you want it to loop through 
+      newarray.push(newItem);
     }
+    console.log(newarray);
+
+    cardmaker(newarray);
+  });
+
 });
+
+function cardmaker(array, location) {
+  // array should have the following elements:
+  // each recipe should have:
+    // recipe.title
+    // recipe.img
+    // recipe.text
+
+    // there are 10 responses, so we need to do some sort of loop;
+    for (var i = 0; i < array.length; i++) {
+      // inside the loop, we should be creating a containerdiv
+      console.log(array[1].title);
+
+      recipe = array[i]
+
+      // CS: new overarchingdiv here
+
+      $containerDiv = $("<div>");
+
+      title = $("<h1>").text(recipe.title); // "title, img, ingr" all taken from example in Edamam documentation
+
+      img = $("<img>").attr("src", recipe.img); // found this looking in the console.. might not be right
+      $ingr = $("<ul>");
+      // .text(recipe.ingredientLines[j]);
+
+      for (var j = 0; j < recipe.text.length; j++) {
+        var $list = $("<li>").text(recipe.text[j]);
+        $ingr.append($list);
+      }
+
+      // add classes to each element and the containerdiv
+      title.addClass("title");
+      img.addClass("image");
+      $ingr.addClass("ingredients");
+
+      $containerDiv.append(title);
+      $containerDiv.append(img);
+      $containerDiv.append($ingr);
+
+
+
+      // CS: Create a new div for the youtube link
+      // Add an attribute title with the value recipe.title
+      // Insert text into the div that says something like, search for youtube!
+      // add a class for this div
+
+      // append the $containerdiv and the youtube div above into the overarching div
+
+      // Append overarching div instead of containerdiv
+      $("#bodydiv").append($containerDiv);
+    }
+  }

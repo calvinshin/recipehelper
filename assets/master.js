@@ -23,5 +23,5 @@ var app = {
     }
 }
 
-app.searchListenerFunction();
+// app.searchListenerFunction();
 app.hoverListenerFunction();
