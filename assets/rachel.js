@@ -39,19 +39,18 @@ $(document).on("click", "#search", function() {
       containerDiv = $("<div>");
 
       // we add three elements based on the response[i] (image, name, preview of recipe instructions)
-// CS: note here that results[1] is fixed! If you're inside a for loop, you'll want to go through each value in the results array
-// It'll have to go through [1]... [2]... [3]... so how do you do that within a for loop?
-  // https://www.w3schools.com/js/tryit.asp?filename=tryjs_loop_for_ex
-// What should [1] be changed to?
-      title = $("<h1>").text(results[1].recipe.label); // "title, img, ingr" all taken from example in Edamam documentation
-
+      // CS: note here that results[1] is fixed! If you're inside a for loop, you'll want to go through each value in the results array
+      // It'll have to go through [1]... [2]... [3]... so how do you do that within a for loop?
+      // https://www.w3schools.com/js/tryit.asp?filename=tryjs_loop_for_ex
+      // What should [1] be changed to?
+      title = $("<h1>").text(results[i].recipe.label); // "title, img, ingr" all taken from example in Edamam documentation
 
       $("#bodydiv").append(title);
 
-// on line 44 (for title), you use results[1].recipe.label
-// but for img and ingr, you're using response.recipe.image.
-  // You're right that it's not right!
-// change the format of the below two lines to be similar to the title one. 
+      // on line 44 (for title), you use results[1].recipe.label
+      // but for img and ingr, you're using response.recipe.image.
+      // You're right that it's not right!
+      // change the format of the below two lines to be similar to the title one.
       img = $("<img>").attr("src", results[i].recipe.image); // found this looking in the console.. might not be right
       ingr = $("<h4>").text(results[i].recipe.ingredients);
 
@@ -66,17 +65,17 @@ $(document).on("click", "#search", function() {
       ingr.attr("src");
 
       // append the elements into the containerdiv
-        // CS: Really close with this!
-        // This should actually be
-        // containerDiv.append(title)
-      $(containerDiv).append("#title");
-      $(containerDiv).append("#image");
-      $(containerDiv).append("#ingredients");
+      // CS: Really close with this!
+      // This should actually be
+      // containerDiv.append(title)
+      $(containerDiv).append(title);
+      $(containerDiv).append(image);
+      $(containerDiv).append(ingredients);
 
       // append the containerdiv to #bodydiv
-        // CS: Close! Check this out https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_html_append_ref
-        // You're actually doing something similar to this on line 49 (and that one is actually correct)
-      $(containerDiv).append("#bodydiv");
+      // CS: Close! Check this out https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_html_append_ref
+      // You're actually doing something similar to this on line 49 (and that one is actually correct)
+      $("#bodydiv").append(containerDiv);
     }
   });
   //   };
