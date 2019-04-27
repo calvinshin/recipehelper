@@ -69,13 +69,13 @@ function cardmaker(array, location) {
       recipe = array[i]
 
       // CS: new overarchingdiv here
-
       $containerDiv = $("<div>");
 
       title = $("<h1>").text(recipe.title); // "title, img, ingr" all taken from example in Edamam documentation
 
       img = $("<img>").attr("src", recipe.img); // found this looking in the console.. might not be right
       $ingr = $("<ul>");
+      $
       // .text(recipe.ingredientLines[j]);
 
       for (var j = 0; j < recipe.text.length; j++) {
