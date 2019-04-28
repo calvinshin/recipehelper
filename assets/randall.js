@@ -31,15 +31,15 @@ ytSearch = function(video) {
         //pushes created array into Rachel's cardmaker function for CSS styling later
         cardmaker(ytArray);
 
-        // // display video to div 
-        // var video = response.items;
-        // var html = "";
-        // video.forEach(function(item){
-        //     // Include the YouTube Watch URL youtu.be 
-        //     html += '<p><a href="http://youtu.be/' + item.id.videoId + '">';
-        //     // Add the default video thumbnail (default quality)
-        //     html += '<img src="' + item.snippet.thumbnails.default.url + '">';
-        // });
-        // //append all
+        // display video to div 
+        var video = response.items;
+        var html = "";
+        video.forEach(function(item){
+            // Include the YouTube Watch URL youtu.be 
+            html += '<p><a href="http://youtu.be/' + item.id.videoId + '">';
+            // Add the default video thumbnail (default quality)
+            html += '<img src="' + item.snippet.thumbnails.default.url + '">';
+        });
+        //append all
     });
 };
