@@ -1,8 +1,8 @@
 ytSearch = function(video) {
     console.log("Eureka! YouTube!");
     var YTKEY = config.YTKEY;
-    var ytVideos = "snippet";
-    var queryURL = "https://www.googleapis.com/youtube/v3/search?part="+ytVideos+"&maxResults=9&key=" + YTKEY;
+    var ytVideos = video;
+    var queryURL = "https://www.googleapis.com/youtube/v3/search?part="+ytVideos+"&maxResults=1&key=" + YTKEY;
 
     $.ajax({
         url: queryURL,
@@ -14,7 +14,7 @@ ytSearch = function(video) {
         
         var ytArray = []; 
 
-        for (var k = 0; k < response.items.length; k++){
+        for (var k = 0; k < 1; k++){
             
             var ytCard = { 
                 title : response.items[k].snippet.title,
@@ -23,7 +23,7 @@ ytSearch = function(video) {
                 url : "http://youtu.be/" + response.items[k].id.videoId,
                 description : response.items[k].snippet.description,
             }; 
-            console.log(ytCard.description);
+            // console.log(ytCard.description);
 
             //push ytVard var into ytArray
             ytArray.push(ytCard);
@@ -31,15 +31,15 @@ ytSearch = function(video) {
         //pushes created array into Rachel's cardmaker function for CSS styling later
         cardmaker(ytArray);
 
-        // display video to div 
-        var video = response.items;
-        var html = "";
-        video.forEach(function(item){
-            // Include the YouTube Watch URL youtu.be 
-            html += '<p><a href="http://youtu.be/' + item.id.videoId + '">';
-            // Add the default video thumbnail (default quality)
-            html += '<img src="' + item.snippet.thumbnails.default.url + '">';
-        });
-        //append all
+        // // display video to div 
+        // var video = response.items;
+        // var html = "";
+        // video.forEach(function(item){
+        //     // Include the YouTube Watch URL youtu.be 
+        //     html += '<p><a href="http://youtu.be/' + item.id.videoId + '">';
+        //     // Add the default video thumbnail (default quality)
+        //     html += '<img src="' + item.snippet.thumbnails.default.url + '">';
+        // });
+        // //append all
     });
 };
