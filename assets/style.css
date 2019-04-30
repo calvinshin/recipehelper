@@ -1,0 +1,30 @@
+a:hover {
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+div {
+    /* border: 1pt black solid; */
+}
+
+.overarching{
+    position: relative;
+    /* background-color: yellow; */
+}
+
+.container{
+    background-color: #00d1b2;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.youtube{
+    /* background-color: yellow; */
+    position: absolute;
+    bottom: 0px;
+    right: 10px;
+    /* margin-bottom: 20px; */
+}
