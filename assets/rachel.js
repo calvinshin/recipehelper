@@ -120,3 +120,4 @@ function cardmaker(array, location) {
     $("#bodydiv").append($overarchingDiv);
   }
 }
+
