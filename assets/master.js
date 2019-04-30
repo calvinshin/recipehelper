@@ -35,14 +35,13 @@ function cardmaker(array, type) {
   // there are 10 responses, so we need to do some sort of loop;
   for (var i = 0; i < array.length; i++) {
     // inside the loop, we should be creating a containerdiv
-    console.log(array[1].title);
 
     var recipe = array[i];
 
     $overarchingDiv = $("<div>"); // new div
-    $overarchingDiv.addClass("overarching");
+    $overarchingDiv.addClass("overarching column is-one-quarter is-primary");
 
-    $containerDiv = $("<a>");
+    $containerDiv = $("<div >");
     $containerDiv.addClass("container");
     $containerDiv.attr("href", recipe.url);
     $containerDiv.attr("target", "_blank");
@@ -76,6 +75,7 @@ function cardmaker(array, type) {
 
     // CS: Create a new div for the youtube link
     $youtubeDiv = $("<div>");
+    $youtubeDiv.addClass("")
 
     // If the type is not youtube, create the youtube div. Otherwise, no youtube div elements.
     if(type != "YT") {
@@ -89,9 +89,14 @@ function cardmaker(array, type) {
     var ytButton = $("<button>", {
         id: "searchYT",
         text: "Find something like it on YouTube!",
+        class: "button is-warning is-small"
         //calls on youTube video
-        click: ytSearch (searchTest),
-          //find a way to pass youtube thumbnails when clicked
+
+        // CS: There's already a youtube listener, so we don't need this click as a part of the creation.
+        // click: ytSearch (searchTest),
+
+
+        //find a way to pass youtube thumbnails when clicked
       });
       $youtubeDiv.append(ytButton);
       // add a class for this div
