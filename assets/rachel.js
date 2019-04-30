@@ -1,5 +1,13 @@
 var term;
 
+// added an event listener to execute search button when enter is clicked
+
+$("#searchterm").keyup(function(event) {
+  if (event.keyCode === 13) {
+      $("#search").click();
+  }
+});
+
 $(document).on("click", "#search", function() {
   term = $("#searchterm")
     .val()
@@ -38,10 +46,12 @@ $(document).on("click", "#search", function() {
       // CS add html link as an attribute ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       newItem.url = recipe.url;
 
+
       newarray.push(newItem);
     }
     console.log(newarray);
 
     cardmaker(newarray);
   });
+
 });
