@@ -16,13 +16,13 @@ $(document).on("click", "#search", function() {
   // var appKey = config.APP_KEY;
 
   var queryURL =
-    "https://api.edamam.com/search?q=" +
-    term +
-<<<<<<< HEAD
-    "&app_id=" + config.edam_ID + "&app_key=" + config.edam_KEY + "";
-=======
-    "&app_id=" + config.edam_ID + "&app_key=" + config.edam_KEY;
->>>>>>> 2077d52f293081937ca2f2fab7befcdd22805900
+  "https://api.edamam.com/search?q=" +
+  term +
+  "&app_id=" +
+  config.edam_ID +
+  "&app_key=" +
+  config.edam_KEY +
+  "&healthLabels=keto-friendly";
 
   // make the AJAX call 
   $.ajax({
@@ -47,10 +47,6 @@ $(document).on("click", "#search", function() {
 
       // CS add html link as an attribute ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       newItem.url = recipe.url;
-<<<<<<< HEAD
-=======
-
->>>>>>> 2077d52f293081937ca2f2fab7befcdd22805900
 
       newarray.push(newItem);
     }
@@ -58,8 +54,4 @@ $(document).on("click", "#search", function() {
 
     cardmaker(newarray);
   });
-<<<<<<< HEAD
-=======
-
->>>>>>> 2077d52f293081937ca2f2fab7befcdd22805900
 });

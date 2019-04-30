@@ -1,7 +1,7 @@
 ytSearch = function(video) {
     console.log("Eureka! YouTube!");
     var YTKEY = config.YTKEY;
-    var ytVideos = video;
+    var ytVideos = recipe.title;
     var queryURL = "https://www.googleapis.com/youtube/v3/search?part="+ytVideos+"&maxResults=1&key=" + YTKEY;
 
     $.ajax({

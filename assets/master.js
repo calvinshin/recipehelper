@@ -81,7 +81,6 @@ function cardmaker(array, type) {
     if(type != "YT") {
       // Add an attribute title with the value recipe.title
       $youtubeDiv.attr("title", recipe.title);
-<<<<<<< HEAD
       
       var searchTest = recipe.title;
     //   console.log('searchTest ', searchTest)
@@ -95,10 +94,6 @@ function cardmaker(array, type) {
           //find a way to pass youtube thumbnails when clicked
       });
       $youtubeDiv.append(ytButton);
-=======
-      // Insert text into the div that says something like, search for youtube!
-      $youtubeDiv.text("search for youtube!");
->>>>>>> 2077d52f293081937ca2f2fab7befcdd22805900
       // add a class for this div
       $youtubeDiv.addClass("youtube");
     }
@@ -112,8 +107,4 @@ function cardmaker(array, type) {
 
   // Add listener for clicking youtubeDiv
   app.youtubeListenerFunction();
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 2077d52f293081937ca2f2fab7befcdd22805900
