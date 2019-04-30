@@ -12,9 +12,13 @@ $(document).on("click", "#search", function() {
   var queryURL =
     "https://api.edamam.com/search?q=" +
     term +
-    "&app_id=" + config.edam_ID + "&app_key=" + config.edam_KEY;
+    "&app_id=" +
+    config.edam_ID +
+    "&app_key=" +
+    config.edam_KEY +
+    "&healthLabels=keto-friendly";
 
-  // make the AJAX call 
+  // make the AJAX call
   $.ajax({
     url: queryURL,
     method: "GET"
