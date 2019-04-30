@@ -1,5 +1,11 @@
 var term;
 
+$("#searchterm").keyup(function(event) {
+  if (event.keyCode === 13) {
+      $("#search").click();
+  }
+});
+
 $(document).on("click", "#search", function() {
   term = $("#searchterm")
     .val()
