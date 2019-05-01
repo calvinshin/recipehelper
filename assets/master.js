@@ -18,7 +18,7 @@ var app = {
     },
 
     externalListenerFunction : function() {
-      $(".container").click(function() {
+      $(".recipeContainer").click(function() {
         window.open(this.getAttribute("href"));
       })
     }
@@ -49,7 +49,7 @@ function cardmaker(array, type) {
     $overarchingDiv.addClass("overarching column is-one-quarter is-primary");
 
     $containerDiv = $("<div>");
-    $containerDiv.addClass("container");
+    $containerDiv.addClass("recipeContainer");
     $containerDiv.attr("href", recipe.url);
     $containerDiv.attr("target", "_blank");
 
