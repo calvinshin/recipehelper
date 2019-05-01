@@ -1,6 +1,7 @@
 ytSearch = function(video) {
     console.log("Eureka! YouTube!");
     var YTKEY = config.YTKEY;
+
     var ytVideos = video; //<-- get this to match recipe.title
     var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet"+"&q="+ytVideos+"&maxResults=5&key=" + YTKEY;
 
