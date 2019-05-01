@@ -15,7 +15,14 @@ var app = {
       $(".youtube").click(function() {
         ytSearch(this.title);
       })
+    },
+
+    externalListenerFunction : function() {
+      $(".container").click(function() {
+        window.open(this.getAttribute("href"));
+      })
     }
+
 }
 
 // app.searchListenerFunction();
@@ -41,7 +48,7 @@ function cardmaker(array, type) {
     $overarchingDiv = $("<div>"); // new div
     $overarchingDiv.addClass("overarching column is-one-quarter is-primary");
 
-    $containerDiv = $("<div >");
+    $containerDiv = $("<div>");
     $containerDiv.addClass("container");
     $containerDiv.attr("href", recipe.url);
     $containerDiv.attr("target", "_blank");
@@ -112,4 +119,6 @@ function cardmaker(array, type) {
 
   // Add listener for clicking youtubeDiv
   app.youtubeListenerFunction();
+
+  app.externalListenerFunction();
 }

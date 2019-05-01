@@ -2,7 +2,7 @@ a:hover {
     text-decoration: none;
 }
 
-a {
+a{
     text-decoration: none;
 }
 
@@ -21,10 +21,19 @@ div {
     border-radius: 5px;
 }
 
+.container:hover{
+    background-color: #04bda1;
+    cursor: pointer;
+}
+
 .youtube{
     /* background-color: yellow; */
     position: absolute;
     bottom: 0px;
     right: 10px;
     /* margin-bottom: 20px; */
+}
+
+.youtube:hover{
+    background-color: #e9c740
 }
