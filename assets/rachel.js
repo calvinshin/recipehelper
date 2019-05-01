@@ -24,10 +24,18 @@ $(document).on("click", "#search", function() {
   config.edam_KEY +
   "&healthLabels=keto-friendly";
 
+  function myCallback(response) {
+    var result = JSON.stringify(response);
+    console.log("Inside ajax: "+ result);                
+    // Do whatever you need with result variable
+  }
+
   // make the AJAX call 
   $.ajax({
     url: queryURL,
-    method: "GET"
+    method: "GET",
+    datatype: "json",
+    success: myCallback,
   }).then(function(response) {
     console.log(response.hits);
 

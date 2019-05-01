@@ -22,8 +22,6 @@ var app = {
 app.hoverListenerFunction();
 
 
-
-
 function cardmaker(array, type) {
   // array should have the following elements:
   // each recipe should have:
@@ -83,6 +81,7 @@ function cardmaker(array, type) {
       $youtubeDiv.attr("title", recipe.title);
       
       var searchTest = recipe.title;
+
     //   console.log('searchTest ', searchTest)
     // Insert text into the div that says something like, search for youtube!
     // $youtubeDiv.text("search for youtube!");
@@ -90,9 +89,9 @@ function cardmaker(array, type) {
         id: "searchYT",
         text: "Find something like it on YouTube!",
         //calls on youTube video
-        click: ytSearch (searchTest),
+        // click: ytSearch(searchTest),
           //find a way to pass youtube thumbnails when clicked
-      });
+   });
       $youtubeDiv.append(ytButton);
       // add a class for this div
       $youtubeDiv.addClass("youtube");
