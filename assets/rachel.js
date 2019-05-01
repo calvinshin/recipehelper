@@ -16,6 +16,7 @@ $(document).on("click", "#search", function() {
   // var appKey = config.APP_KEY;
 
   var queryURL =
+<<<<<<< HEAD
   "https://api.edamam.com/search?q=" +
   term +
   "&app_id=" +
@@ -31,6 +32,17 @@ $(document).on("click", "#search", function() {
   }
 
   // make the AJAX call 
+=======
+    "https://api.edamam.com/search?q=" +
+    term +
+    "&app_id=" +
+    config.edam_ID +
+    "&app_key=" +
+    config.edam_KEY +
+    "&healthLabels=keto-friendly";
+
+  // make the AJAX call
+>>>>>>> b358d6b49bae4d66417ff6be2d6865c90f788129
   $.ajax({
     url: queryURL,
     method: "GET",
