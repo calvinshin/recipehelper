@@ -15,13 +15,18 @@ var app = {
       $(".youtube").click(function() {
         ytSearch(this.title);
       })
+    },
+
+    externalListenerFunction : function() {
+      $(".recipeContainer").click(function() {
+        window.open(this.getAttribute("href"));
+      })
     }
+
 }
 
 // app.searchListenerFunction();
 app.hoverListenerFunction();
-
-
 
 
 function cardmaker(array, type) {
@@ -35,15 +40,14 @@ function cardmaker(array, type) {
   // there are 10 responses, so we need to do some sort of loop;
   for (var i = 0; i < array.length; i++) {
     // inside the loop, we should be creating a containerdiv
-    console.log(array[1].title);
 
     var recipe = array[i];
 
     $overarchingDiv = $("<div>"); // new div
-    $overarchingDiv.addClass("overarching");
+    $overarchingDiv.addClass("overarching column is-one-quarter is-primary");
 
-    $containerDiv = $("<a>");
-    $containerDiv.addClass("container");
+    $containerDiv = $("<div>");
+    $containerDiv.addClass("recipeContainer");
     $containerDiv.attr("href", recipe.url);
     $containerDiv.attr("target", "_blank");
 
@@ -76,13 +80,32 @@ function cardmaker(array, type) {
 
     // CS: Create a new div for the youtube link
     $youtubeDiv = $("<div>");
+    $youtubeDiv.addClass("")
 
     // If the type is not youtube, create the youtube div. Otherwise, no youtube div elements.
     if(type != "YT") {
       // Add an attribute title with the value recipe.title
       $youtubeDiv.attr("title", recipe.title);
-      // Insert text into the div that says something like, search for youtube!
-      $youtubeDiv.text("search for youtube!");
+      
+      var searchTest = recipe.title;
+
+    //   console.log('searchTest ', searchTest)
+    // Insert text into the div that says something like, search for youtube!
+    // $youtubeDiv.text("search for youtube!");
+    var ytButton = $("<button>", {
+        id: "searchYT",
+        text: "Find something like it on YouTube!",
+        class: "button is-warning is-small"
+        //calls on youTube video
+
+        // CS: There's already a youtube listener, so we don't need this click as a part of the creation.
+        // click: ytSearch (searchTest),
+
+
+        //find a way to pass youtube thumbnails when clicked
+      });
+
+      $youtubeDiv.append(ytButton);
       // add a class for this div
       $youtubeDiv.addClass("youtube");
     }
@@ -96,4 +119,6 @@ function cardmaker(array, type) {
 
   // Add listener for clicking youtubeDiv
   app.youtubeListenerFunction();
+
+  app.externalListenerFunction();
 }

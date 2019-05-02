@@ -1,5 +1,11 @@
 var term;
 
+$("#searchterm").keyup(function(event) {
+  if (event.keyCode === 13) {
+    $("#search").click();
+  }
+});
+
 $(document).on("click", "#search", function() {
   term = $("#searchterm")
     .val()
@@ -22,6 +28,7 @@ $(document).on("click", "#search", function() {
     config.edam_ID +
     "&app_key=" +
     config.edam_KEY;
+
   // "&healthLabels=keto-friendly";
 
   if (labels1 == true) {
@@ -32,10 +39,18 @@ $(document).on("click", "#search", function() {
     queryURL += "&healthLabels=gluten-free";
   }
 
+  function myCallback(response) {
+    var result = JSON.stringify(response);
+    console.log("Inside ajax: " + result);
+    // Do whatever you need with result variable
+  }
+
   // make the AJAX call
   $.ajax({
     url: queryURL,
-    method: "GET"
+    method: "GET",
+    datatype: "json",
+    success: myCallback
   }).then(function(response) {
     console.log(response.hits);
 

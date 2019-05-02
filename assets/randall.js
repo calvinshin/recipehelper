@@ -1,21 +1,20 @@
 ytSearch = function(video) {
     console.log("Eureka! YouTube!");
     var YTKEY = config.YTKEY;
-    var ytVideos = "snippet";
-    var queryURL = "https://www.googleapis.com/youtube/v3/search?part="+ytVideos+"&maxResults=9&key=" + YTKEY;
+
+    var ytVideos = video; //<-- get this to match recipe.title
+    var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet"+"&q="+ytVideos+"&maxResults=5&key=" + YTKEY;
 
     $.ajax({
         url: queryURL,
         method: "GET",
     }).then(function(response){
-        console.log(response)
-        console.log(response.items[0]);
-        // Changed this to var k so that the variable lives only inside of the function
+        // console.log(response)
+        // console.log(response.items[0]);
         
         var ytArray = []; 
 
         for (var k = 0; k < response.items.length; k++){
-            
             var ytCard = { 
                 title : response.items[k].snippet.title,
                 img : response.items[k].snippet.thumbnails.medium.url,
@@ -23,8 +22,7 @@ ytSearch = function(video) {
                 url : "http://youtu.be/" + response.items[k].id.videoId,
                 description : response.items[k].snippet.description,
             }; 
-            console.log(ytCard.description);
-
+            // console.log(ytCard.description);
             //push ytVard var into ytArray
             ytArray.push(ytCard);
         };

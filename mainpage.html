@@ -6,33 +6,44 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Recipe Searcher</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/bulma.css">
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-    <div id="headerdiv">
-        <div class="input-group mb-3">
-            <input id="searchterm" type="text" class="form-control" placeholder="carrots" aria-label="taskname" aria-describedby="basic-addon2">
-            <div class="input-group-append">
-            <button id="search" class="btn btn-outline-secondary" type="button">Add!</button>
-            </div>
-          </div>
+    <div id="headerdiv" class="hero is-primary">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    Recipe Searcher
+                </h1>
+                <h2 class="subtitle">
+                    Search recipes on Edamam!
+                </h2>
+                <div class="field">
+                    <label class="label whitefont">Keywords</label>
+                    <div class="control">
+                        <input id="searchterm" class="input" type="text" placeholder="carrots">
+                    </div>
+                </div>
+                <div class="input-group-append">
+                    <button id="search" class="button is-primary is-inverted" type="button">Search!</button>
+                </div>
 
-        <div class="technique">yt quick example</div>
+            </div>
+        </div>
+        <div class="technique">(yt quick example)</div>
     </div>
     <p></p>
-    <div id="bodydiv">
-        <h2>Recipes</h2>
+    <h2 class="title recipeheader">Recipes</h2>
+    <div id="bodydiv" class="columns is-multiline">
     </div>
+    <div id="expandedsearch">
 
+    </div>
     <!-- jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- config keys -->
 
-<!-- HEY RANDALL -->
-<!-- Please put your config into to assets/config folder. The .gitignore will gray out the file so it won't be uploaded -->
-
-    <!-- <script type='text/javascript' src='/Users/randall/Desktop/APIkeys/config.js'></script> -->
     <!-- js -->
     <script src="assets/config.js"></script>
     <script src="assets/master.js"></script>
