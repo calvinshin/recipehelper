@@ -32,11 +32,11 @@ $(document).on("click", "#search", function() {
   // "&healthLabels=keto-friendly";
 
   if (labels1 == true) {
-    queryURL += "&healthLabels=keto-friendly";
+    queryURL += "&health=peanut-free";
   } else if (labels2 == true) {
-    queryURL += "&healthLabels=paleo";
+    queryURL += "&health=vegan";
   } else if (labels3 == true) {
-    queryURL += "&healthLabels=gluten-free";
+    queryURL += "&health=sugar-conscious";
   }
 
   function myCallback(response) {
@@ -52,7 +52,7 @@ $(document).on("click", "#search", function() {
     datatype: "json",
     success: myCallback
   }).then(function(response) {
-    console.log(response.hits);
+    // console.log(response.hits);
 
     // set the 10 responses back as an array
     var results = response.hits;
@@ -73,7 +73,9 @@ $(document).on("click", "#search", function() {
 
       newarray.push(newItem);
     }
-    console.log(newarray);
+    // console.log(newarray);
+
+    divmaker(term, "EM");
 
     cardmaker(newarray);
   });

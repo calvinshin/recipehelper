@@ -46,3 +46,7 @@ div {
 .whitefont{
     color: white;
 }
+
+#allthebodydivs{
+    padding: 20px;
+}

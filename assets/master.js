@@ -13,7 +13,9 @@ var app = {
 
     youtubeListenerFunction : function() {
       $(".youtube").click(function() {
-        ytSearch(this.title);
+        var title = this.title
+        divmaker(title, "YT");
+        ytSearch(title);
       })
     },
 
@@ -27,6 +29,35 @@ var app = {
 
 // app.searchListenerFunction();
 app.hoverListenerFunction();
+
+function divmaker(title, type) {
+   // Create a new div that everything is going to be prepended to
+   var bodydiv = $("<div>");
+   // Add a title for the search!
+  var divTitle = $("<h2>");
+  divTitle.addClass("title recipeheader");
+
+  if(type==="YT") {
+    divTitle.html("Recipes similar to: " + "<i>" + title + "</i>");
+  }
+  else{
+    divTitle.html("Search results for: " + "<i>" + title + "</i>")
+  }
+
+   console.log(title);
+
+   // Add classes for columns is-multiline
+    bodydiv.addClass("columns is-multiline");
+   // prepend this div 
+  $("#allthebodydivs").prepend(divTitle, bodydiv);
+
+  // Scroll to the divmaker
+
+  $('html, body').animate({
+    scrollTop: parseInt($("allthebodydivs").offset())
+}, 500);
+
+}
 
 
 function cardmaker(array, type) {
@@ -114,7 +145,8 @@ function cardmaker(array, type) {
     $overarchingDiv.append($containerDiv);
     $overarchingDiv.append($youtubeDiv);
     // Append overarching div instead of containerdiv
-    $("#bodydiv").append($overarchingDiv);
+    
+    $(".is-multiline:first").append($overarchingDiv);
   }
 
   // Add listener for clicking youtubeDiv
