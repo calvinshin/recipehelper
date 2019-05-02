@@ -39,13 +39,14 @@ $(document).on("click", "#search", function() {
     queryURL += "&health=sugar-conscious";
   }
 
+
   function myCallback(response) {
     var result = JSON.stringify(response);
-    console.log("Inside ajax: " + result);
+    // console.log("Inside ajax: "+ result);                
     // Do whatever you need with result variable
   }
 
-  // make the AJAX call
+  // make the AJAX call 
   $.ajax({
     url: queryURL,
     method: "GET",
@@ -65,8 +66,8 @@ $(document).on("click", "#search", function() {
       newItem.title = recipe.label;
       // add image as attribute
       newItem.img = recipe.image;
-      // add ingredients as attribute
-      newItem.text = recipe.ingredientLines;
+      // add healthLabels as attribute
+      newItem.text = recipe.healthLabels;
 
       // CS add html link as an attribute ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       newItem.url = recipe.url;
