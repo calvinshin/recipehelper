@@ -2,7 +2,7 @@ var term;
 
 $("#searchterm").keyup(function(event) {
   if (event.keyCode === 13) {
-      $("#search").click();
+    $("#search").click();
   }
 });
 
@@ -10,44 +10,47 @@ $(document).on("click", "#search", function() {
   term = $("#searchterm")
     .val()
     .trim();
+  labels1 = $("#label1").prop("checked");
+  console.log(labels1);
+  labels2 = $("#label2").prop("checked");
+  labels3 = $("#label3").prop("checked");
+
   console.log(term);
+  console.log(labels2);
 
   // var appId = config.APP_ID;
   // var appKey = config.APP_KEY;
 
   var queryURL =
-<<<<<<< HEAD
-  "https://api.edamam.com/search?q=" +
-  term +
-  "&app_id=" +
-  config.edam_ID +
-  "&app_key=" +
-  config.edam_KEY +
-  "&healthLabels=keto-friendly";
-
-  function myCallback(response) {
-    var result = JSON.stringify(response);
-    console.log("Inside ajax: "+ result);                
-    // Do whatever you need with result variable
-  }
-
-  // make the AJAX call 
-=======
     "https://api.edamam.com/search?q=" +
     term +
     "&app_id=" +
     config.edam_ID +
     "&app_key=" +
-    config.edam_KEY +
-    "&healthLabels=keto-friendly";
+    config.edam_KEY;
+
+  // "&healthLabels=keto-friendly";
+
+  if (labels1 == true) {
+    queryURL += "&healthLabels=keto-friendly";
+  } else if (labels2 == true) {
+    queryURL += "&healthLabels=paleo";
+  } else if (labels3 == true) {
+    queryURL += "&healthLabels=gluten-free";
+  }
+
+  function myCallback(response) {
+    var result = JSON.stringify(response);
+    console.log("Inside ajax: " + result);
+    // Do whatever you need with result variable
+  }
 
   // make the AJAX call
->>>>>>> b358d6b49bae4d66417ff6be2d6865c90f788129
   $.ajax({
     url: queryURL,
     method: "GET",
     datatype: "json",
-    success: myCallback,
+    success: myCallback
   }).then(function(response) {
     console.log(response.hits);
 
