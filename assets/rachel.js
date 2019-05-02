@@ -22,13 +22,23 @@ $(document).on("click", "#search", function() {
   // var appKey = config.APP_KEY;
 
   var queryURL =
-  "https://api.edamam.com/search?q=" +
-  term +
-  "&app_id=" +
-  config.edam_ID +
-  "&app_key=" +
-  config.edam_KEY +
-  "&healthLabels=keto-friendly";
+    "https://api.edamam.com/search?q=" +
+    term +
+    "&app_id=" +
+    config.edam_ID +
+    "&app_key=" +
+    config.edam_KEY;
+
+  // "&healthLabels=keto-friendly";
+
+  if (labels1 == true) {
+    queryURL += "&health=peanut-free";
+  } else if (labels2 == true) {
+    queryURL += "&health=vegan";
+  } else if (labels3 == true) {
+    queryURL += "&health=sugar-conscious";
+  }
+
 
   function myCallback(response) {
     var result = JSON.stringify(response);
@@ -43,7 +53,7 @@ $(document).on("click", "#search", function() {
     datatype: "json",
     success: myCallback
   }).then(function(response) {
-    console.log(response.hits);
+    // console.log(response.hits);
 
     // set the 10 responses back as an array
     var results = response.hits;
@@ -64,7 +74,9 @@ $(document).on("click", "#search", function() {
 
       newarray.push(newItem);
     }
-    console.log(newarray);
+    // console.log(newarray);
+
+    divmaker(term, "EM");
 
     cardmaker(newarray);
   });

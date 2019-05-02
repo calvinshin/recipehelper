@@ -26,6 +26,8 @@ ytSearch = function(video) {
             //push ytVard var into ytArray
             ytArray.push(ytCard);
         };
+        // create a new div
+
         //pushes created array into Rachel's cardmaker function for CSS styling later
         cardmaker(ytArray, "YT");
 
