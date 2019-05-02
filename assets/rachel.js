@@ -2,7 +2,7 @@ var term;
 
 $("#searchterm").keyup(function(event) {
   if (event.keyCode === 13) {
-      $("#search").click();
+    $("#search").click();
   }
 });
 
@@ -10,7 +10,13 @@ $(document).on("click", "#search", function() {
   term = $("#searchterm")
     .val()
     .trim();
+  labels1 = $("#label1").prop("checked");
+  console.log(labels1);
+  labels2 = $("#label2").prop("checked");
+  labels3 = $("#label3").prop("checked");
+
   console.log(term);
+  console.log(labels2);
 
   // var appId = config.APP_ID;
   // var appKey = config.APP_KEY;
@@ -35,7 +41,7 @@ $(document).on("click", "#search", function() {
     url: queryURL,
     method: "GET",
     datatype: "json",
-    success: myCallback,
+    success: myCallback
   }).then(function(response) {
     console.log(response.hits);
 
