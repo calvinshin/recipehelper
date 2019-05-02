@@ -22,30 +22,21 @@ $(document).on("click", "#search", function() {
   // var appKey = config.APP_KEY;
 
   var queryURL =
-    "https://api.edamam.com/search?q=" +
-    term +
-    "&app_id=" +
-    config.edam_ID +
-    "&app_key=" +
-    config.edam_KEY;
-
-  // "&healthLabels=keto-friendly";
-
-  if (labels1 == true) {
-    queryURL += "&healthLabels=keto-friendly";
-  } else if (labels2 == true) {
-    queryURL += "&healthLabels=paleo";
-  } else if (labels3 == true) {
-    queryURL += "&healthLabels=gluten-free";
-  }
+  "https://api.edamam.com/search?q=" +
+  term +
+  "&app_id=" +
+  config.edam_ID +
+  "&app_key=" +
+  config.edam_KEY +
+  "&healthLabels=keto-friendly";
 
   function myCallback(response) {
     var result = JSON.stringify(response);
-    console.log("Inside ajax: " + result);
+    // console.log("Inside ajax: "+ result);                
     // Do whatever you need with result variable
   }
 
-  // make the AJAX call
+  // make the AJAX call 
   $.ajax({
     url: queryURL,
     method: "GET",
