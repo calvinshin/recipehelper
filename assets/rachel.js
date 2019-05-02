@@ -65,8 +65,8 @@ $(document).on("click", "#search", function() {
       newItem.title = recipe.label;
       // add image as attribute
       newItem.img = recipe.image;
-      // add ingredients as attribute
-      newItem.text = recipe.ingredientLines;
+      // add healthLabels as attribute
+      newItem.text = recipe.healthLabels;
 
       // CS add html link as an attribute ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       newItem.url = recipe.url;
