@@ -1,52 +1,64 @@
 a:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 
-a{
-    text-decoration: none;
+a {
+  text-decoration: none;
 }
 
 div {
-    /* border: 1pt black solid; */
+  /* border: 1pt black solid; */
 }
 
-.overarching{
-    position: relative;
-    /* background-color: yellow; */
+.overarching {
+  position: relative;
+  /* background-color: yellow; */
 }
 
-.recipeContainer{
-    background-color: #00d1b2;
-    padding: 15px;
-    border-radius: 5px;
-    height: 100%;
+.recipeContainer {
+  background-color: #00d1b2;
+  padding: 15px;
+  border-radius: 5px;
+  height: 100%;
 }
 
-.recipeContainer:hover{
-    background-color: #04bda1;
-    cursor: pointer;
+.recipeContainer:hover {
+  background-color: #04bda1;
+  cursor: pointer;
 }
 
-.youtube{
-    /* background-color: yellow; */
-    position: absolute;
-    bottom: 0px;
-    right: 12px;
-    /* margin-bottom: 20px; */
+.youtube {
+  /* background-color: yellow; */
+  position: absolute;
+  bottom: 0px;
+  right: 12px;
+  /* margin-bottom: 20px; */
 }
 
-.youtube:hover{
-    background-color: #e9c740
+.youtube:hover {
+  background-color: #e9c740;
 }
 
-.recipeheader{
-    margin: 10px !important;
+.recipeheader {
+  margin: 10px !important;
 }
 
-.whitefont{
-    color: white;
+.whitefont {
+  color: white;
 }
 
-#allthebodydivs{
-    padding: 20px;
+#allthebodydivs {
+  padding: 20px;
+}
+
+.healthBtn {
+  background: #00d1b2;
+  color: #ffffff;
+  margin: 0.5%;
+}
+
+.healthBtn:hover,
+.healthBtn:focus {
+  background: #ffffff;
+  color: #00d1b2;
 }
