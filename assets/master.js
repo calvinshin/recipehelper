@@ -1,33 +1,30 @@
 var app = {
-    hoverListenerFunction : function() {
-        $(".technique").click(function() {
-            console.log("hover done!");
-            var technique = this.innerText;
-            console.log(technique);
-            // Insert the function here:
-            // dictionarySearch(technique);
-            ytSearch(technique);
+  hoverListenerFunction: function() {
+    $(".technique").click(function() {
+      console.log("hover done!");
+      var technique = this.innerText;
+      console.log(technique);
+      // Insert the function here:
+      // dictionarySearch(technique);
+      ytSearch(technique);
+    });
+  },
 
-        })
-    },
+  youtubeListenerFunction: function() {
+    $(".youtube").click(function() {
+      ytSearch(this.title);
+    });
+  },
 
-    youtubeListenerFunction : function() {
-      $(".youtube").click(function() {
-        ytSearch(this.title);
-      })
-    },
-
-    externalListenerFunction : function() {
-      $(".recipeContainer").click(function() {
-        window.open(this.getAttribute("href"));
-      })
-    }
-
-}
+  externalListenerFunction: function() {
+    $(".recipeContainer").click(function() {
+      window.open(this.getAttribute("href"));
+    });
+  }
+};
 
 // app.searchListenerFunction();
 app.hoverListenerFunction();
-
 
 function cardmaker(array, type) {
   // array should have the following elements:
@@ -57,7 +54,7 @@ function cardmaker(array, type) {
     // .text(recipe.ingredientLines[j]);
 
     // Checks if the text is an array and if it is, it provides ingredietns as a list
-    if(Array.isArray(recipe.text)) {
+    if (Array.isArray(recipe.text)) {
       $ingr = $("<ul>");
       for (var j = 0; j < recipe.text.length; j++) {
         var $list = $("<li>").text(recipe.text[j]);
@@ -65,14 +62,14 @@ function cardmaker(array, type) {
       }
     }
     // Otherwise, if it's just text, it's provided as a string.
-    else{
+    else {
       $ingr = $("<div>").text(recipe.text);
     }
 
     // add classes to each element and the containerdiv
     title.addClass("title");
     img.addClass("image");
-    $ingr.addClass("ingredients");
+    $ingr.addClass("healthlabels");
 
     $containerDiv.append(title);
     $containerDiv.append(img);
@@ -80,19 +77,19 @@ function cardmaker(array, type) {
 
     // CS: Create a new div for the youtube link
     $youtubeDiv = $("<div>");
-    $youtubeDiv.addClass("")
+    $youtubeDiv.addClass("");
 
     // If the type is not youtube, create the youtube div. Otherwise, no youtube div elements.
-    if(type != "YT") {
+    if (type != "YT") {
       // Add an attribute title with the value recipe.title
       $youtubeDiv.attr("title", recipe.title);
-      
+
       var searchTest = recipe.title;
 
-    //   console.log('searchTest ', searchTest)
-    // Insert text into the div that says something like, search for youtube!
-    // $youtubeDiv.text("search for youtube!");
-    var ytButton = $("<button>", {
+      //   console.log('searchTest ', searchTest)
+      // Insert text into the div that says something like, search for youtube!
+      // $youtubeDiv.text("search for youtube!");
+      var ytButton = $("<button>", {
         id: "searchYT",
         text: "Find something like it on YouTube!",
         class: "button is-warning is-small"
@@ -100,7 +97,6 @@ function cardmaker(array, type) {
 
         // CS: There's already a youtube listener, so we don't need this click as a part of the creation.
         // click: ytSearch (searchTest),
-
 
         //find a way to pass youtube thumbnails when clicked
       });
