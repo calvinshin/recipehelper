@@ -30,6 +30,7 @@ A dynamically created app that provides recipes that can be filtered by dietary 
 
 <h3>Roles:</h3>
 <p><u>Calvin:</u><br>
+    Calvin worked as the engineering PM for the project, making sure that all team members grew and developed their coding skills while working on this project. To ensure this, Calvin wrote less code and instead provided pseudocode to ensure that the code would merge together correctly. The core work was to be a primary code reviewer and correct any outstanding issues after code was pushed.
 </p>
 <p><u>Rachel:</u><br>
 </p>

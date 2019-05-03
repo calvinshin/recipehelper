@@ -133,7 +133,7 @@ function cardmaker(array, type) {
       else {
         var ytImgDiv = $("<div>");
         var ytImage = $("<img>");
-        ytImage.attr("src", "assets/.gitignore");
+        ytImage.attr("src", "assets/images/ytimage.png");
         ytImage.addClass("ytImage"),
         ytImgDiv.addClass("ytImgDiv");
         ytImgDiv.append(ytImage);
