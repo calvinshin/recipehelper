@@ -50,3 +50,9 @@ div {
 #allthebodydivs{
     padding: 20px;
 }
+
+.ytImage {
+    width: 25%;
+    margin-top: -5%;
+    margin-left: 75%;
+}
