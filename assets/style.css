@@ -47,6 +47,7 @@ div {
   color: white;
 }
 
+
 #allthebodydivs {
   padding: 20px;
 }
@@ -62,3 +63,10 @@ div {
   background: #ffffff;
   color: #00d1b2;
 }
+
+.ytImage {
+    width: 25%;
+    margin-top: -5%;
+    margin-left: 75%;
+}
+

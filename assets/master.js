@@ -66,13 +66,13 @@ function cardmaker(array, type) {
   // recipe.text
   // recipe.url
 
-  // there are 10 responses, so we need to do some sort of loop;
+  //iterate through responses
   for (var i = 0; i < array.length; i++) {
-    // inside the loop, we should be creating a containerdiv
 
+    // create a containerdiv inside the loop 
     var recipe = array[i];
 
-    $overarchingDiv = $("<div>"); // new div
+    $overarchingDiv = $("<div>");
     $overarchingDiv.addClass("overarching column is-one-quarter is-primary");
 
     $containerDiv = $("<div>");
@@ -83,7 +83,6 @@ function cardmaker(array, type) {
     title = $("<h1>").text(recipe.title);
     img = $("<img>").attr("src", recipe.img);
 
-    // .text(recipe.ingredientLines[j]);
 
     // Checks if the text is an array and if it is, it provides ingredietns as a list
     if (Array.isArray(recipe.text)) {
@@ -96,7 +95,6 @@ function cardmaker(array, type) {
         $ingr.append($list);
       }
     }
-    // Otherwise, if it's just text, it's provided as a string.
     else {
       $ingr = $("<div>").text(recipe.text);
     }
@@ -119,32 +117,32 @@ function cardmaker(array, type) {
       // Add an attribute title with the value recipe.title
       $youtubeDiv.attr("title", recipe.title);
 
-      var searchTest = recipe.title;
-
-      //   console.log('searchTest ', searchTest)
-      // Insert text into the div that says something like, search for youtube!
-      // $youtubeDiv.text("search for youtube!");
+      //button for the youTubeevent listener
       var ytButton = $("<button>", {
         id: "searchYT",
         text: "Find something like it on YouTube!",
         class: "button is-warning is-small"
         //calls on youTube video
-
-        // CS: There's already a youtube listener, so we don't need this click as a part of the creation.
-        // click: ytSearch (searchTest),
-
-        //find a way to pass youtube thumbnails when clicked
       });
 
       $youtubeDiv.append(ytButton);
       // add a class for this div
       $youtubeDiv.addClass("youtube");
     }
+      //adds a youtube image if the thumbnail is a youtube video
+      else {
+        var ytImgDiv = $("<div>");
+        var ytImage = $("<img>");
+        ytImage.attr("src", "assets/.gitignore");
+        ytImage.addClass("ytImage"),
+        ytImgDiv.addClass("ytImgDiv");
+        ytImgDiv.append(ytImage);
+        $containerDiv.append(ytImgDiv);
+      }
 
-    // append the $containerdiv and the youtube div above into the overarching div
+    // append the $overarching div and the youtube div above into the overarching div
     $overarchingDiv.append($containerDiv);
     $overarchingDiv.append($youtubeDiv);
-    // Append overarching div instead of containerdiv
 
     $(".is-multiline:first").append($overarchingDiv);
   }
@@ -154,3 +152,6 @@ function cardmaker(array, type) {
 
   app.externalListenerFunction();
 }
+
+
+    
