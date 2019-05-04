@@ -11,6 +11,7 @@ var app = {
   },
 
   youtubeListenerFunction: function() {
+    $(".youtube").off("click");
     $(".youtube").click(function() {
       var title = this.title;
       divmaker(title, "YT");
@@ -19,6 +20,7 @@ var app = {
   },
 
   externalListenerFunction: function() {
+    $(".recipeContainer").off("click");
     $(".recipeContainer").click(function() {
       window.open(this.getAttribute("href"));
     });
