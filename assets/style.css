@@ -62,3 +62,10 @@ div {
   background: #ffffff;
   color: #00d1b2;
 }
+
+#hkPic {
+  height: 80px;
+  width: 80px;
+  float: right;
+  margin: -6%;
+}
