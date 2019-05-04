@@ -47,7 +47,6 @@ div {
   color: white;
 }
 
-
 #allthebodydivs {
   padding: 20px;
 }
@@ -64,20 +63,24 @@ div {
   color: #00d1b2;
 }
 
+#hkPic {
+  height: 80px;
+  width: 80px;
+  float: right;
+  margin: -6%;
+}
 .ytImage {
-    width: 25%;
-    float: right;
-    margin-top: 20px;
-    margin-bottom: 20px;
+  width: 25%;
+  float: right;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 @media (max-width: 768px) {
-
-    .ytImage {
-        width: 10%;
-        float: none;
-        margin-top: 15px;
-        margin-bottom: 0px;
-    }
-
+  .ytImage {
+    width: 10%;
+    float: none;
+    margin-top: 15px;
+    margin-bottom: 0px;
+  }
 }

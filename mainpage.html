@@ -1,47 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Recipe Searcher</title>
 
-    <link rel="stylesheet" href="assets/bulma.css">
-    <link rel="stylesheet" href="assets/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="assets/bulma.css" />
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body>
     <div id="headerdiv" class="hero is-primary">
-        <div class="hero-body">
-            <div class="container">
-                <h1 class="title">
-                    Recipe Searcher
-                </h1>
-                <h2 class="subtitle">
-                    Search recipes on Edamam!
-                </h2>
-                <div class="field">
-                    <label class="label whitefont">Keywords</label>
-                    <div class="control">
-                        <input id="searchterm" class="input" type="text" placeholder="carrots">
-                    </div>
-                    <input type="checkbox" id="label1" />
-                    Peanut Free
-                    <input type="checkbox" id="label2" />
-                    Vegan
-                    <input type="checkbox" id="label3" />
-                    Sugar Conscious
-                </div>
-                <div class="input-group-append">
-                    <button id="search" class="button is-primary is-inverted" type="button">Search!</button>
-                </div>
-
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            Recipe Searcher
+          </h1>
+          <h2 class="subtitle">
+            Search recipes on Edamam!
+          </h2>
+          <div class="field">
+            <label class="label whitefont">Keywords</label>
+            <div class="control">
+              <input
+                id="searchterm"
+                class="input"
+                type="text"
+                placeholder="carrots"
+              />
             </div>
+            <input type="checkbox" id="label1" />
+            Peanut Free
+            <input type="checkbox" id="label2" />
+            Vegan
+            <input type="checkbox" id="label3" />
+            Sugar Conscious
+          </div>
+          <div class="input-group-append">
+            <button
+              id="search"
+              class="button is-primary is-inverted"
+              type="button"
+            >
+              Search!
+            </button>
+          </div>
+          <div id="helloKitty">
+            <img
+              src="http://www.stickpng.com/assets/thumbs/58485538b772315a9e4dd5d9.png"
+              id="hkPic"
+              alt="Hello Kitty"
+            />
+          </div>
         </div>
-        <div class="technique"></div>
+      </div>
+      <div class="technique"></div>
     </div>
     <p></p>
     <div id="allthebodydivs">
-        <!-- Where information will go -->
+      <!-- Where information will go -->
     </div>
     <!-- jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -53,5 +70,5 @@
     <script src="assets/calvin.js"></script>
     <script src="assets/randall.js"></script>
     <script src="assets/rachel.js"></script>
-</body>
+  </body>
 </html>
