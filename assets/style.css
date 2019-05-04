@@ -69,3 +69,18 @@ div {
   float: right;
   margin: -6%;
 }
+.ytImage {
+  width: 25%;
+  float: right;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .ytImage {
+    width: 10%;
+    float: none;
+    margin-top: 15px;
+    margin-bottom: 0px;
+  }
+}
